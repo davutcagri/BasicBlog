@@ -1,0 +1,26 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::post('/post/create', [PostController::class, 'create'])->name('post.create');
+
+Route::delete('/post/{post_id}', [PostController::class, 'delete'])->name('post.delete');
+
+Route::post('/post/{post_id}/update', [PostController::class, 'update'])->name('post.update');
