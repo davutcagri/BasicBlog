@@ -9,9 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts';
-    protected $fillable = ['user_id', 'title', 'body'];
+    protected $table = 'posts'; //Database table name
+    protected $fillable = ['user_id', 'title', 'body']; //Fillable variables
 
+    //Get author information
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
